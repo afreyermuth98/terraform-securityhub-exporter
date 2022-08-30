@@ -7,7 +7,7 @@ data "archive_file" "securityhub_exporter" {
 resource "aws_lambda_function" "securityhub_exporter" {
   filename      = data.archive_file.securityhub_exporter.output_path
   function_name = "SecurityHub-Exporter"
-  description   = "This script will exporter the findings of security hub"
+  description   = "This script exports the findings of security hub"
 
   role             = aws_iam_role.lambda.arn
   handler          = "securityhub_exporter.lambda_handler"
